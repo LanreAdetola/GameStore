@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "X33eXic8UWkImkIHmx9ogU+8egWT6xYCK8htTZdwbktNSxID0b/atNoB/KceHGbjvUrB4xLyJPit9XPShhvSFQ==",
+  "dgSpecHash": "U/6zTTmCAVg=",
   "success": true,
   "projectFilePath": "/Users/november/Documents/C# Project/GameStore/GameStore.frontend/GameStore.frontend.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/november/.nuget/packages/microsoft.netcore.app.ref/8.0.17/microsoft.netcore.app.ref.8.0.17.nupkg.sha512",
+    "/Users/november/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.17/microsoft.aspnetcore.app.ref.8.0.17.nupkg.sha512",
+    "/Users/november/.nuget/packages/microsoft.netcore.app.host.osx-arm64/8.0.17/microsoft.netcore.app.host.osx-arm64.8.0.17.nupkg.sha512"
+  ],
   "logs": []
 }
