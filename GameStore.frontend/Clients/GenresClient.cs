@@ -1,7 +1,6 @@
 using System;
 using GameStore.frontend.Models;
 
-namespace GameStore.frontend.Clients;
 
 public class GenresClient
 {
