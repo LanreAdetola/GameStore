@@ -1,65 +1,51 @@
 ﻿@page "/"
-@using Models
+@using Clients 
 
 
 <PageTitle>Game Catalog</PageTitle>
 
-<h1>Game Catalog</h1>
+@if(games is null)
+{
+    <p> <em>Loading games...</em> </p>
+}
+else
+{
 
-<table class="table table-striped table-bordered table-hover">
-    <thead class="table-dark">
-        <th>Id</th>
-        <th>Name</th>
-        <th>Genre</th>
-        <th>Price</th>
-        <th>Release Date</th>
-    </thead>
-    <tbody>
-
-        @foreach(var game in games){
+    <table class="table table-striped table-bordered table-hover mt-5">
+        <thead class="table-dark">
             <tr>
-                <td>@game.Id</td>
-                <td>@game.Name</td>
-                <td>@game.Genre</td>
-                <td>@game.Price</td>
-                <td>@game.ReleaseDate</td>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Genre</th>
+            <th class="text-end">Price</th>
+            <th>Release Date</th>
             </tr>
-        }
+        </thead>
+        <tbody>
 
-    </tbody>
-</table>
-
-@code{ 
-    private GameSummary[] games = 
-    [
-    new () {
-            Id = 1,
-            Name = "Street Fighter II",
-            Genre = "Fighting",
-            Price = 19.99m,
-            ReleaseDate = new DateOnly(1992, 7, 15)
-            },
-    new () {
-            Id = 2,
-            Name = "Super Mario World",
-            Genre = "Platformer",
-            Price = 29.99m,
-            ReleaseDate = new DateOnly(1990, 11, 21)
-            },
-    new () {
-            Id = 3, 
-            Name = "The Legend of Zelda",
-            Genre = "Adventure",
-            Price = 39.99m,
-            ReleaseDate = new DateOnly(1991, 11, 21)
-            },  
-    new () {
-            Id = 4,
-            Name = "Final Fantasy VII",
-            Genre = "Role-Playing",
-            Price = 49.99m,
-            ReleaseDate = new DateOnly(1997, 1, 31)
+            @foreach(var game in games){
+                <tr>
+                    <td>@game.Id</td>
+                    <td>@game.Name</td>
+                    <td>@game.Genre</td>
+                    <td class="text-end">@game.Price.ToString("C2")</td>
+                    <td>@game.ReleaseDate</td>
+                   
+                </tr>
             }
 
-    ];
+        </tbody>
+    </table>
+}
+
+@code{ 
+    private GamesClient client = new();
+
+    private GameSummary[]? games; 
+    
+    protected override void OnInitialized()
+    {
+        games = client.GetGames();
+    }
+
 }
